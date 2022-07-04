@@ -211,7 +211,7 @@ public class DataSetSolution {
 
     String strFilename = scanner.nextLine();
 
-    DataSet dataset = new DataSet(strFilename);
+    DataSetSolution dataset = new DataSetSolution(strFilename);
 
     System.out.print(dataset.metadataToString());
 

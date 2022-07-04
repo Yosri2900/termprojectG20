@@ -8,11 +8,19 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class dataSetTestSolution {
 
+  private final String CREDITINFO = "C:\\Users\\yosri\\Desktop\\seg3103\\term_project\\decisiontree\\src\\main\\java\\aone\\credit-info.csv";
+  private final String CREDITINFOWITHCOMMAS = "C:\\Users\\yosri\\Desktop\\seg3103\\term_project\\decisiontree\\src\\main\\java\\aone\\credit-info-with-commas.csv";
+  private final String LARGE = "C:\\Users\\yosri\\Desktop\\seg3103\\term_project\\decisiontree\\src\\main\\java\\aone\\large.csv";
+  private final String MISSINGVALUES = "C:\\Users\\yosri\\Desktop\\seg3103\\term_project\\decisiontree\\src\\main\\java\\aone\\missing-values.csv";
+  private final String WEATHERNOMINAL = "C:\\Users\\yosri\\Desktop\\seg3103\\term_project\\decisiontree\\src\\main\\java\\aone\\weather-nominal.csv";
+  private final String WEATHERNUMERIC = "C:\\Users\\yosri\\Desktop\\seg3103\\term_project\\decisiontree\\src\\main\\java\\aone\\weather-numeric.csv";
+  private final String WEATHERWITHSPACES = "C:\\Users\\yosri\\Desktop\\seg3103\\term_project\\decisiontree\\src\\main\\java\\aone\\weather-with-spaces.csv";
+
   @Test
   public void testWeatherConstructor() {
     DataSetSolution ds;
     try {
-      ds = new DataSetSolution("weather-nominal.csv");
+      ds = new DataSetSolution(WEATHERNOMINAL);
     } catch (Exception e) {
       fail("Should not have thrown any exception!");
     }
@@ -22,7 +30,7 @@ public class dataSetTestSolution {
   public void testCreditWithoutCommasConstructor() {
     DataSetSolution ds;
     try {
-      ds = new DataSetSolution("credit-info.csv");
+      ds = new DataSetSolution(CREDITINFO);
     } catch (Exception e) {
       fail("Should not have thrown an exception!");
     }
@@ -32,7 +40,7 @@ public class dataSetTestSolution {
   public void testCreditWithCommasConstructor() {
     DataSetSolution ds;
     try {
-      ds = new DataSetSolution("credit-info-with-commas.csv");
+      ds = new DataSetSolution(CREDITINFOWITHCOMMAS);
     } catch (Exception e) {
       fail("Should not have thrown an exception!");
     }
@@ -40,7 +48,7 @@ public class dataSetTestSolution {
 
   @Test
   public void testWeatherDimensions() throws Exception {
-    DataSetSolution ds = new DataSetSolution("weather-nominal.csv");
+    DataSetSolution ds = new DataSetSolution(WEATHERNOMINAL);
     assertEquals(5, ds.getNumberOfAttributes());
     assertEquals(14, ds.getNumberOfDatapoints());
 
@@ -49,7 +57,7 @@ public class dataSetTestSolution {
 
   @Test
   public void testCreditWithoutCommasDimensions() throws Exception {
-    DataSetSolution ds = new DataSetSolution("credit-info.csv");
+    DataSetSolution ds = new DataSetSolution(CREDITINFO);
     assertEquals(21, ds.getNumberOfAttributes());
     assertEquals(1000, ds.getNumberOfDatapoints());
 
@@ -57,14 +65,14 @@ public class dataSetTestSolution {
 
   @Test
   public void testCreditWithCommasDimensions() throws Exception {
-    DataSetSolution ds = new DataSetSolution("credit-info-with-commas.csv");
+    DataSetSolution ds = new DataSetSolution(CREDITINFOWITHCOMMAS);
     assertEquals(21, ds.getNumberOfAttributes());
     assertEquals(1000, ds.getNumberOfDatapoints());
   }
 
   @Test
   public void testWeatherSpotChecks() throws Exception {
-    DataSetSolution ds = new DataSetSolution("weather-nominal.csv");
+    DataSetSolution ds = new DataSetSolution(WEATHERNOMINAL);
 
     String attr1 = ds.getAttributeName(0);
     String attr2 = ds.getAttributeName(3);
@@ -86,7 +94,7 @@ public class dataSetTestSolution {
 
   @Test
   public void testCreditWithoutCommasSpotChecks() throws Exception {
-    DataSetSolution ds = new DataSetSolution("credit-info.csv");
+    DataSetSolution ds = new DataSetSolution(CREDITINFO);
 
     String attr1 = ds.getAttributeName(8);
     String attr2 = ds.getAttributeName(15);
@@ -108,7 +116,7 @@ public class dataSetTestSolution {
 
   @Test
   public void testCreditWithCommasSpotChecks() throws Exception {
-    DataSetSolution ds = new DataSetSolution("credit-info-with-commas.csv");
+    DataSetSolution ds = new DataSetSolution(CREDITINFOWITHCOMMAS);
 
     String attr1 = ds.getAttributeName(8);
     String attr2 = ds.getAttributeName(15);
@@ -129,21 +137,21 @@ public class dataSetTestSolution {
 
   @Test
   public void testWeatherUniqueValues1() throws Exception {
-    DataSetSolution ds = new DataSetSolution("weather-nominal.csv");
+    DataSetSolution ds = new DataSetSolution(WEATHERNOMINAL);
     String[] array = ds.getUniqueAttributeValues("outlook");
     assertEquals(3, array.length);
   }
 
   @Test
   public void testWeatherUniqueValues2() throws Exception {
-    DataSetSolution ds = new DataSetSolution("weather-nominal.csv");
+    DataSetSolution ds = new DataSetSolution(WEATHERNOMINAL);
     String[] array = ds.getUniqueAttributeValues("humidity");
     assertEquals(2, array.length);
   }
 
   @Test
   public void testWeatherUniqueValues3() throws Exception {
-    DataSetSolution ds = new DataSetSolution("weather-nominal.csv");
+    DataSetSolution ds = new DataSetSolution(WEATHERNOMINAL);
     String[] array = ds.getUniqueAttributeValues("temperature");
     assertEquals(3, array.length);
   }
@@ -151,77 +159,77 @@ public class dataSetTestSolution {
 
   @Test
   public void testCreditWithoutCommasUniqueValues1() throws Exception {
-    DataSetSolution ds = new DataSetSolution("credit-info.csv");
+    DataSetSolution ds = new DataSetSolution(CREDITINFO);
     String[] array = ds.getUniqueAttributeValues("personal_status");
     assertEquals(4, array.length);
   }
 
   @Test
   public void testCreditWithoutCommasUniqueValues2() throws Exception {
-    DataSetSolution ds = new DataSetSolution("credit-info.csv");
+    DataSetSolution ds = new DataSetSolution(CREDITINFO);
     String[] array = ds.getUniqueAttributeValues("credit_history");
     assertEquals(5, array.length);
   }
 
   @Test
   public void testCreditWithoutCommasUniqueValues3() throws Exception {
-    DataSetSolution ds = new DataSetSolution("credit-info.csv");
+    DataSetSolution ds = new DataSetSolution(CREDITINFO);
     String[] array = ds.getUniqueAttributeValues("job");
     assertEquals(4, array.length);
   }
 
   @Test
   public void testCreditWithoutCommasUniqueValues4() throws Exception {
-    DataSetSolution ds = new DataSetSolution("credit-info.csv");
+    DataSetSolution ds = new DataSetSolution(CREDITINFO);
     String[] array = ds.getUniqueAttributeValues("age");
     assertEquals(53, array.length);
   }
 
   @Test
   public void testCreditWithoutCommasUniqueValues5() throws Exception {
-    DataSetSolution ds = new DataSetSolution("credit-info.csv");
+    DataSetSolution ds = new DataSetSolution(CREDITINFO);
     String[] array = ds.getUniqueAttributeValues("credit_amount");
     assertEquals(921, array.length);
   }
 
   @Test
   public void testCreditWithCommasUniqueValues1() throws Exception {
-    DataSetSolution ds = new DataSetSolution("credit-info-with-commas.csv");
+    DataSetSolution ds = new DataSetSolution(CREDITINFOWITHCOMMAS);
     String[] array = ds.getUniqueAttributeValues("gender, status");
     assertEquals(4, array.length);
   }
 
   @Test
   public void testCreditWithCommasUniqueValues2() throws Exception {
-    DataSetSolution ds = new DataSetSolution("credit-info-with-commas.csv");
+    DataSetSolution ds = new DataSetSolution(CREDITINFOWITHCOMMAS);
     String[] array = ds.getUniqueAttributeValues("credit_history");
     assertEquals(5, array.length);
   }
 
   @Test
   public void testCreditWithCommasUniqueValues3() throws Exception {
-    DataSetSolution ds = new DataSetSolution("credit-info-with-commas.csv");
+    DataSetSolution ds = new DataSetSolution(CREDITINFOWITHCOMMAS);
     String[] array = ds.getUniqueAttributeValues("job");
     assertEquals(4, array.length);
   }
 
   @Test
   public void testCreditWithCommasUniqueValues4() throws Exception {
-    DataSetSolution ds = new DataSetSolution("credit-info-with-commas.csv");
+    DataSetSolution ds = new DataSetSolution(CREDITINFOWITHCOMMAS);
     String[] array = ds.getUniqueAttributeValues("age");
     assertEquals(53, array.length);
   }
 
   @Test
   public void testCreditWithCommasUniqueValues5() throws Exception {
-    DataSetSolution ds = new DataSetSolution("credit-info-with-commas.csv");
+    DataSetSolution ds = new DataSetSolution(CREDITINFOWITHCOMMAS);
     String[] array = ds.getUniqueAttributeValues("credit_amount");
     assertEquals(921, array.length);
   }
 
   @Test
   public void testLarge() throws Exception {
-    DataSetSolution ds = new DataSetSolution("large.csv");
+    DataSetSolution ds = new DataSetSolution(LARGE);
     String[] array = ds.getUniqueAttributeValues("credit_amount");
     assertEquals(921, array.length);
 
@@ -234,7 +242,7 @@ public class dataSetTestSolution {
 
   @Test
   public void testMissingValues() throws Exception {
-    DataSetSolution ds = new DataSetSolution("missing-values.csv");
+    DataSetSolution ds = new DataSetSolution(MISSINGVALUES);
     String[] array = ds.getUniqueAttributeValues("outlook");
     assertEquals(4, array.length);
     array = ds.getUniqueAttributeValues("temperature");
@@ -249,7 +257,7 @@ public class dataSetTestSolution {
 
   @Test
   public void testwithSpaces() throws Exception {
-    DataSetSolution ds = new DataSetSolution("weather-with-spaces.csv");
+    DataSetSolution ds = new DataSetSolution(WEATHERWITHSPACES);
     String[] array = ds.getUniqueAttributeValues("outlook");
     assertEquals(3, array.length);
     array = ds.getUniqueAttributeValues("temperature");

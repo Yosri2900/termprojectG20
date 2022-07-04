@@ -9,6 +9,15 @@ import java.util.Scanner;
  */
 public class DataSet {
 
+  private final String CREDITINFO = "C:\\Users\\yosri\\Desktop\\seg3103\\term_project\\decisiontree\\src\\main\\java\\aone\\credit-info.csv";
+  private final String CREDITINFOWITHCOMMAS = "C:\\Users\\yosri\\Desktop\\seg3103\\term_project\\decisiontree\\src\\main\\java\\aone\\credit-info-with-commas.csv";
+  private final String LARGE = "C:\\Users\\yosri\\Desktop\\seg3103\\term_project\\decisiontree\\src\\main\\java\\aone\\large.csv";
+  private final String MISSINGVALUES = "C:\\Users\\yosri\\Desktop\\seg3103\\term_project\\decisiontree\\src\\main\\java\\aone\\missing-values.csv";
+  private final String WEATHERNOMINAL = "C:\\Users\\yosri\\Desktop\\seg3103\\term_project\\decisiontree\\src\\main\\java\\aone\\weather-nominal.csv";
+  private final String WEATHERNUMERIC = "C:\\Users\\yosri\\Desktop\\seg3103\\term_project\\decisiontree\\src\\main\\java\\aone\\weather-numeric.csv";
+  private final String WEATHERWITHSPACES = "C:\\Users\\yosri\\Desktop\\seg3103\\term_project\\decisiontree\\src\\main\\java\\aone\\weather-with-spaces.csv";
+
+
   /**
    * The delimiter that separates attribute names and attribute values
    */
@@ -47,6 +56,13 @@ public class DataSet {
   public DataSet(String strFilename) throws Exception {
 
     // WRITE YOUR CODE HERE!
+    calculateDimensions(strFilename);
+
+    attributeNames = new String[numColumns];
+
+    matrix = new String[numRows][numColumns];
+
+    instantiateFromFile(strFilename);
 
   }
 
@@ -105,7 +121,7 @@ public class DataSet {
    *
    * @param attributeName is the name of the attribute whose unique values must be
    *                      returned
-   * @return String[] reference to the unique values of the the attribute with the
+   * @return String[] reference to the unique values of the attribute with the
    *         given name
    */
   public String[] getUniqueAttributeValues(String attributeName) {
@@ -140,7 +156,7 @@ public class DataSet {
   }
 
   /**
-   * Returns in the form of an explanatory string some important characteristics
+   * Returns in form of an explanatory string some important characteristics
    * of the dataset. These characteristics are: the number of attributes, the
    * number of datapoints and the unique values that each attribute can assume
    *
@@ -190,45 +206,27 @@ public class DataSet {
 
   }
 
-  /**
-   * This method should set the numColumns and numRows instance variables
-   * The method is incomplete; you need to complete it.
-   * @param strFilename is the name of the dataset file
-   */
   private void calculateDimensions(String strFilename) throws Exception {
 
     Scanner scanner = new Scanner(new File(strFilename));
 
-    // YOU ARE ALLOWED TO DEFINE LOCAL VARIABLES
-
     while (scanner.hasNext()) {
-      // Read one full line from file
       String str = scanner.nextLine();
-
-      // WRITE YOUR CODE HERE!
-
     }
 
     scanner.close();
+
   }
 
-  /**
-   * This method should load the attribute names into the attributeNames
-   * instance variable and load the datapoints into the matrix instance variable.
-   * The method is incomplete; you need to complete it.
-   * @param strFilename is the name of the file to read
-   */
   private void instantiateFromFile(String strFilename) throws Exception {
     Scanner scanner = new Scanner(new File(strFilename));
 
-    // YOU ARE ALLOWED TO DEFINE LOCAL VARIABLES
-
     while (scanner.hasNext()) {
       String str = scanner.nextLine();
 
-      // WRITE YOUR CODE HERE!
-
     }
+
     scanner.close();
   }
+
 }
