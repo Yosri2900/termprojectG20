@@ -3,6 +3,15 @@ import java.io.File;
 import java.util.Scanner;
 
 public class DataSetSolution {
+
+  private static final String CREDITINFO = "C:\\Users\\yosri\\Desktop\\seg3103\\term_project\\decisiontree\\src\\main\\java\\aone\\credit-info.csv";
+  private static final String CREDITINFOWITHCOMMAS = "C:\\Users\\yosri\\Desktop\\seg3103\\term_project\\decisiontree\\src\\main\\java\\aone\\credit-info-with-commas.csv";
+  private static final String LARGE = "C:\\Users\\yosri\\Desktop\\seg3103\\term_project\\decisiontree\\src\\main\\java\\aone\\large.csv";
+  private static final String MISSINGVALUES = "C:\\Users\\yosri\\Desktop\\seg3103\\term_project\\decisiontree\\src\\main\\java\\aone\\missing-values.csv";
+  private static final String WEATHERNOMINAL = "C:\\Users\\yosri\\Desktop\\seg3103\\term_project\\decisiontree\\src\\main\\java\\aone\\weather-nominal.csv";
+  private static final String WEATHERNUMERIC = "C:\\Users\\yosri\\Desktop\\seg3103\\term_project\\decisiontree\\src\\main\\java\\aone\\weather-numeric.csv";
+  private static final String WEATHERWITHSPACES = "C:\\Users\\yosri\\Desktop\\seg3103\\term_project\\decisiontree\\src\\main\\java\\aone\\weather-with-spaces.csv";
+
   /**
    * The delimiter that separates attribute names and attribute values
    */
@@ -195,27 +204,16 @@ public class DataSetSolution {
     return buffer.toString();
   }
 
-  /**
-   * <b>main</b> of the application. The method first reads from the standard
-   * input the name of the CSV file to process. Next, it creates an instance of
-   * DataSet. Finally, it prints to the standard output the metadata of the
-   * instance of the DataSet just created.
-   *
-   * @param args command lines parameters (not used in the body of the method)
-   */
-  public static void main(String[] args) throws Exception {
-
-    System.out.print("Please enter the name of the CSV file to read: ");
-
-    Scanner scanner = new Scanner(System.in);
-
-    String strFilename = scanner.nextLine();
-
-    DataSetSolution dataset = new DataSetSolution(strFilename);
-
-    System.out.print(dataset.metadataToString());
-
-  }
+//  public static void main(String[] args) throws Exception {
+//
+////    System.out.print("Please enter the name of the CSV file to read: ");
+//
+//
+//    DataSetSolution dataset = new DataSetSolution(CREDITINFO);
+//
+//    System.out.print(dataset.metadataToString());
+//
+//  }
 
   private void calculateDimensions(String strFilename) throws Exception {
 

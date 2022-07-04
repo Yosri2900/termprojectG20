@@ -1,13 +1,5 @@
 package aone;
 
-/**
- * This is a utility class to simplify the implementation of metadataToString()
- * in the DataSet class.
- *
- * @author Mehrdad Sabetzadeh, University of Ottawa
- * @author Guy-Vincent Jourdan, University of Ottawa
- *
- */
 public class Util {
 
   /**
@@ -17,7 +9,7 @@ public class Util {
    * @return true if str represents a numeric value and false otherwise
    */
   public static boolean isNumeric(String str) {
-    if (str == null) {
+    if (str == null || str.equals("")) {
       return false;
     }
     return str.matches("-?\\d+(\\.\\d+)?");
@@ -56,6 +48,9 @@ public class Util {
     if (array == null)
       return null;
 
+//    if (isArrayNumeric(array))
+//      return null;
+
     StringBuffer buffer = new StringBuffer();
 
     buffer.append("[");
@@ -86,6 +81,9 @@ public class Util {
     if (array == null)
       return null;
 
+//    if (!isArrayNumeric(array))
+//      return null;
+//
     StringBuilder buffer = new StringBuilder();
 
     buffer.append("[");
