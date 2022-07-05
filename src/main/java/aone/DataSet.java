@@ -200,6 +200,11 @@ public class DataSet {
 
   }
 
+  /**
+   * This method should set the numColumns and numRows instance variables
+   * The method is incomplete; you need to complete it.
+   * @param strFilename is the name of the dataset file
+   */
   private void calculateDimensions(String strFilename) throws Exception {
 
     Scanner scanner = new Scanner(new File(strFilename));
@@ -211,7 +216,12 @@ public class DataSet {
     scanner.close();
 
   }
-
+  /**
+   * This method should load the attribute names into the attributeNames[]
+   * instance variable and load the datapoints into the matrix instance variable.
+   * The method is incomplete; you need to complete it.
+   * @param strFilename is the name of the file to read
+   */
   private void instantiateFromFile(String strFilename) throws Exception {
     Scanner scanner = new Scanner(new File(strFilename));
 
