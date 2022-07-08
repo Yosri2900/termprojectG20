@@ -1,5 +1,6 @@
 package aone;
 import java.io.File;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class DataSetSolution {
@@ -56,6 +57,7 @@ public class DataSetSolution {
     matrix = new String[numRows][numColumns];
 
     instantiateFromFile(strFilename);
+
   }
 
   /**
@@ -204,16 +206,12 @@ public class DataSetSolution {
     return buffer.toString();
   }
 
-//  public static void main(String[] args) throws Exception {
-//
-////    System.out.print("Please enter the name of the CSV file to read: ");
-//
-//
-//    DataSetSolution dataset = new DataSetSolution(CREDITINFO);
-//
+  public static void main(String[] args) throws Exception {
+
+    DataSetSolution dataset = new DataSetSolution(CREDITINFOWITHCOMMAS);
+
 //    System.out.print(dataset.metadataToString());
-//
-//  }
+  }
 
   private void calculateDimensions(String strFilename) throws Exception {
 

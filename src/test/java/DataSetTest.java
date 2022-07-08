@@ -1,8 +1,9 @@
 import aone.DataSet;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.*;
 import static org.testng.AssertJUnit.assertFalse;
 import static org.testng.AssertJUnit.assertTrue;
 
@@ -78,7 +79,7 @@ public class DataSetTest {
 
     assertEquals("outlook", attr1);
     assertEquals("windy", attr2);
-    assertEquals(null, attr3);
+    assertNull(attr3);
 
     String val1 = ds.getAttributeValue(4, 1);
     String val2 = ds.getAttributeValue(13, 2);
@@ -86,7 +87,7 @@ public class DataSetTest {
 
     assertEquals("cool", val1);
     assertEquals("high", val2);
-    assertEquals(null, val3);
+    assertNull(val3);
 
   }
 
@@ -100,7 +101,7 @@ public class DataSetTest {
 
     assertEquals("personal_status", attr1);
     assertEquals("existing_credits", attr2);
-    assertEquals(null, attr3);
+    assertNull(attr3);
 
     String val1 = ds.getAttributeValue(400, 12);
     String val2 = ds.getAttributeValue(500, 4);
@@ -108,7 +109,7 @@ public class DataSetTest {
 
     assertEquals("39", val1);
     assertEquals("3123", val2);
-    assertEquals(null, val3);
+    assertNull(val3);
 
   }
 
@@ -122,7 +123,7 @@ public class DataSetTest {
 
     assertEquals("gender, status", attr1);
     assertEquals("existing_credits", attr2);
-    assertEquals(null, attr3);
+    assertNull(attr3);
 
     String val1 = ds.getAttributeValue(400, 12);
     String val2 = ds.getAttributeValue(500, 4);
@@ -130,13 +131,14 @@ public class DataSetTest {
 
     assertEquals("39", val1);
     assertEquals("3123", val2);
-    assertEquals(null, val3);
+    assertNull(val3);
   }
 
   @Test
   public void testWeatherUniqueValues1() throws Exception {
     DataSet ds = new DataSet(WEATHERNOMINAL);
     String[] array = ds.getUniqueAttributeValues("outlook");
+    System.out.println(Arrays.toString(array));
     assertEquals(3, array.length);
   }
 
