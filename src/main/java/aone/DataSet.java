@@ -47,8 +47,6 @@ public class DataSet {
    */
   private String[] attributeNames;
 
-  private List<String> list;
-
   private String[][] matrix;
   /**
    * Constructs a dataset by loading a CSV file

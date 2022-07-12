@@ -53,22 +53,6 @@ public class DataSetTest {
 
   }
 
-
-  @Test
-  public void testCreditWithoutCommasDimensions() throws Exception {
-    DataSet ds = new DataSet(CREDITINFO);
-    assertEquals(21, ds.getNumberOfAttributes());
-    assertEquals(1000, ds.getNumberOfDatapoints());
-
-  }
-
-  @Test
-  public void testCreditWithCommasDimensions() throws Exception {
-    DataSet ds = new DataSet(CREDITINFOWITHCOMMAS);
-    assertEquals(21, ds.getNumberOfAttributes());
-    assertEquals(1000, ds.getNumberOfDatapoints());
-  }
-
   @Test
   public void testWeatherSpotChecks() throws Exception {
     DataSet ds = new DataSet(WEATHERNOMINAL);
@@ -90,6 +74,24 @@ public class DataSetTest {
     assertNull(val3);
 
   }
+
+
+  @Test
+  public void testCreditWithoutCommasDimensions() throws Exception {
+    DataSet ds = new DataSet(CREDITINFO);
+    assertEquals(21, ds.getNumberOfAttributes());
+    assertEquals(1000, ds.getNumberOfDatapoints());
+
+  }
+
+  @Test
+  public void testCreditWithCommasDimensions() throws Exception {
+    DataSet ds = new DataSet(CREDITINFOWITHCOMMAS);
+    assertEquals(21, ds.getNumberOfAttributes());
+    assertEquals(1000, ds.getNumberOfDatapoints());
+  }
+
+
 
   @Test
   public void testCreditWithoutCommasSpotChecks() throws Exception {
