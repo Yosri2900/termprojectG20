@@ -172,45 +172,38 @@ public class DataSetSolution {
     return values;
   }
 
-  /**
-   * Returns in the form of an explanatory string some important characteristics
-   * of the dataset. These characteristics are: the number of attributes, the
-   * number of datapoints and the unique values that each attribute can assume
-   *
-   * @return String containing the characteristics (metadata)
-   */
-  public String metadataToString() {
-
-    StringBuffer buffer = new StringBuffer();
-
-    String separator = System.getProperty("line.separator");
-
-    buffer.append("Number of attributes: ").append(numColumns).append(separator);
-    buffer.append("Number of datapoints: ").append(numRows).append(separator).append(separator);
-    buffer.append("* * * Attribute value sets * * *").append(separator);
-
-    for (int i = 0; i < attributeNames.length; i++) {
-      buffer.append(i + 1 + ") " + attributeNames[i]);
-      String[] values = getUniqueAttributeValues(i);
-      if (Util.isArrayNumeric(values)) {
-        buffer.append(" (numeric): ");
-        buffer.append(Util.numericArrayToString(values));
-        buffer.append(separator);
-      } else {
-        buffer.append(" (nominal): ");
-        buffer.append(Util.nominalArrayToString(values));
-        buffer.append(separator);
-      }
-    }
-
-    return buffer.toString();
-  }
-
-//  public static void main(String[] args) throws Exception {
+//  /**
+//   * Returns to the form of an explanatory string some important characteristics
+//   * of the dataset. These characteristics are: the number of attributes, the
+//   * number of datapoints and the unique values that each attribute can assume
+//   *
+//   * @return String containing the characteristics (metadata)
+//   */
+//  public String metadataToString() {
 //
-//    DataSetSolution dataset = new DataSetSolution(CREDITINFOWITHCOMMAS);
+//    StringBuffer buffer = new StringBuffer();
 //
-////    System.out.print(dataset.metadataToString());
+//    String separator = System.getProperty("line.separator");
+//
+//    buffer.append("Number of attributes: ").append(numColumns).append(separator);
+//    buffer.append("Number of datapoints: ").append(numRows).append(separator).append(separator);
+//    buffer.append("* * * Attribute value sets * * *").append(separator);
+//
+//    for (int i = 0; i < attributeNames.length; i++) {
+//      buffer.append(i + 1 + ") " + attributeNames[i]);
+//      String[] values = getUniqueAttributeValues(i);
+//      if (Util.isArrayNumeric(values)) {
+//        buffer.append(" (numeric): ");
+//        buffer.append(Util.numericArrayToString(values));
+//        buffer.append(separator);
+//      } else {
+//        buffer.append(" (nominal): ");
+//        buffer.append(Util.nominalArrayToString(values));
+//        buffer.append(separator);
+//      }
+//    }
+//
+//    return buffer.toString();
 //  }
 
   private void calculateDimensions(String strFilename) throws Exception {
